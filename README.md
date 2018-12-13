@@ -4,7 +4,7 @@ A quick demo to show the use of [react-virtualized] (http://bvaughn.github.io/re
 
 There is an example for how to get row-span and col-span working.
 
-![tweaked multigrid](public/img/table.png)
+![tweaked multigrid](public/img/table.png?raw=true)
 
 * react-virtualized tables
 * rowspan, colspan multigrid
