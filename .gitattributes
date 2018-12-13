@@ -1,0 +1,2 @@
+* linguist-vendored
+*.cljs linguist-vendored=false
