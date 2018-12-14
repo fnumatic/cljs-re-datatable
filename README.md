@@ -6,6 +6,9 @@ There is an example for how to get row-span and col-span working.
 
 ![tweaked multigrid](resources/public/img/table.png?raw=true)
 
+
+Demo site: [explore via workspaces] (http://fnumatic.github.io/cljs-re-datatable/)
+
 * react-virtualized tables
 * rowspan, colspan multigrid
 * reitit frontend routing
