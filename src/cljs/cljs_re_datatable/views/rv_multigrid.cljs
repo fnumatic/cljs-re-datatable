@@ -4,7 +4,7 @@
      [cljsjs.react-virtualized]))
 
 
-(defn xcell-renderer [{:keys [style key isVisible isScrolling] c :columnIndex r :rowIndex :as m}]
+(defn ^:export xcell-renderer [{:keys [style key isVisible isScrolling] c :columnIndex r :rowIndex :as m}]
      (cond
        (not isVisible) nil
        (= [0 0] [c r])  nil
@@ -15,7 +15,7 @@
                                 :style style}
                                (str "[" c ", " r "]")])))
 
-(defn default-cellrenderer [m]
+(defn ^:export default-cellrenderer [m]
   (let [childs (js/ReactVirtualized.defaultCellRangeRenderer m)]
     (.push childs (r/as-element [:div "hurray"]))
     childs))
@@ -23,7 +23,7 @@
 
 
 
-(defn visible? [{:keys [visibleColumnIndices visibleRowIndices]} ri ci]
+(defn ^:export visible? [{:keys [visibleColumnIndices visibleRowIndices]} ri ci]
   (and
     (>= ci (:start visibleColumnIndices))
     (>= ri (:start visibleRowIndices))
@@ -31,13 +31,16 @@
     (<= ri (:stop visibleRowIndices))))
 
 
+(defn size-position-cell [pm index]
+  (js-invoke  pm "getSizeAndPositionOfCell" index))
+
 (defn cell-dimension [{:keys [rowSizeAndPositionManager
                               columnSizeAndPositionManager
                               horizontalOffsetAdjustment
                               verticalOffsetAdjustment]}
                       ri ci]
-  (let [rd     (.getSizeAndPositionOfCell rowSizeAndPositionManager ri)
-        cd     (.getSizeAndPositionOfCell columnSizeAndPositionManager ci)
+  (let [rd     (size-position-cell rowSizeAndPositionManager ri)
+        cd     (size-position-cell columnSizeAndPositionManager ci)
         left   (+ (:offset cd) horizontalOffsetAdjustment)
         top    (+ (:offset rd) verticalOffsetAdjustment)
         height (:size rd)

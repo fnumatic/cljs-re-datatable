@@ -1,4 +1,6 @@
-(ns cljs-re-datatable.views.rv-table)
+(ns cljs-re-datatable.views.rv-table
+  (:require
+    [cljsjs.react-virtualized]))
 
 
 (defn person [i]

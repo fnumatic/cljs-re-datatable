@@ -6,6 +6,8 @@
                  [metosin/reitit "0.2.7"]
                  [metosin/reitit-schema "0.2.7"]
                  [metosin/reitit-frontend "0.2.7"]
+                 [nubank/workspaces "1.0.1"]
+                 [org.clojure/test.check "0.10.0-alpha3"]
                  [garden "1.3.6"]
                  [cljsjs/react-virtualized "9.18.5-1"]]
 
@@ -13,7 +15,8 @@
 
   :min-lein-version "2.8.1"
 
-  :source-paths ["src/clj" "src/cljs" "test/cljs"]
+  :source-paths ["src/clj" "src/cljs"]
+  :test-paths ["test/cljs"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
@@ -45,6 +48,7 @@
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
             "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
+            "fig:ws"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "ws"]
 
             "ancient-all" ["update-in" ":plugins" "conj" "[lein-ancient \"0.6.15\"]"
                                     "--" "ancient" "upgrade" ":interactive" ":all" ":check-clojure" ":no-tests"]

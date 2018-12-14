@@ -3,7 +3,9 @@
      [reagent.core :as r]
      [cljsjs.react-virtualized]))
 
-(def rerender? (r/atom 0))
+
+(defn size-position-cell [pm index]
+  (js-invoke  pm "getSizeAndPositionOfCell" index))
 
 (def matrix
   {:rowCount 200
@@ -75,10 +77,10 @@
         (boolean (visible-in-span? (virt-cells) visibleRowIndices visibleColumnIndices))))))
 
 (defn sizefn [posman offs]
-  (:size (.getSizeAndPositionOfCell posman offs)))
+  (:size (size-position-cell posman offs)))
 
 (defn offsetfn [posman offs]
-  (:offset (.getSizeAndPositionOfCell posman offs)))
+  (:offset (size-position-cell posman offs)))
 
 (defn span-size [posman offs span]
   ( if span

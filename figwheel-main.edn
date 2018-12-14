@@ -1,4 +1,4 @@
-{:watch-dirs ["src/cljs"]
+{:watch-dirs ["src/cljs" "test/cljs"]
  ;:css-dirs ["resources/public/css"]}
  :open-url false
  :auto-testing true}
