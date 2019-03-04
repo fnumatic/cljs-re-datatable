@@ -1,7 +1,8 @@
 (ns cljs-re-datatable.views.rv-multigrid-enh
   (:require
-     [reagent.core :as r]
-     [cljsjs.react-virtualized]))
+    [reagent.core :as r]
+    [cljsjs.react-virtualized]
+    [cljs-re-datatable.views.rvutils :as rvu]))
 
 
 (defn size-position-cell [pm index]
@@ -153,7 +154,7 @@
 
 
 
-(defn multigrid []
+(defn multigrid [size]
   [:> js/ReactVirtualized.MultiGrid
    {
     :fixedColumnCount         2,
@@ -165,8 +166,8 @@
     :rowCount                 (:rowCount matrix)
     :rowHeight                40
     :columnWidth              70
-    :height                   300
-    :width                    650
+    :height                   (:height size)
+    :width                    (:width size)
     ; needed for dispatch in cellrange-renderer
     ; want to know wich grid is calling
     :classNameBottomRightGrid :bottomRightGrid
@@ -175,9 +176,12 @@
     :classNameBottomLeftGrid  :bottomLeftGrid}])
 
 (defn main []
-  [:div
-     [:h2 "enhanced multigrid with spanned rows cols"]
-     [multigrid]])
+  (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
+    [:div.container-fluid.d-flex.flex-column.h-100.pb-3
+       [:h2 "enhanced multigrid with spanned rows cols"]
+       [:div.row.flex-grow-1;
+        [rvu/AutoSizr resize]
+        [multigrid @size]]]))
 
 (comment
   (defn dbg-cr-render [{:keys [columnStartIndex

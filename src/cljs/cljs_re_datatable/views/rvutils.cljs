@@ -6,7 +6,6 @@
 (defn AutoSizr [sizer-fn]
   [:> js/ReactVirtualized.AutoSizer
    (fn [props]
-       ;(println :autosizr props)
        (sizer-fn props)
        (r/as-element [:<>]))])
 

@@ -97,7 +97,6 @@
 
 
 (defn multigrid [size]
-  (println size)
   [:> js/ReactVirtualized.MultiGrid
    {
     :fixedColumnCount  2,

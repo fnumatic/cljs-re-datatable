@@ -20,5 +20,6 @@
      (rc/as-element [mg/main])))
 
 (ws/defcard multigrid-enhanced
+   {::wsm/align {:flex "1 1 auto"}}
    (ct.react/react-card
      (rc/as-element [mge/main])))
