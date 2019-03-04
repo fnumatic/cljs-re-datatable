@@ -22,7 +22,7 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
 
 [reagent hooks] (https://gitlab.com/boogie666/reagent-hooks)
 
-̀```
+```
 (defn AutoSizr [sizer-fn]
   [:> js/ReactVirtualized.AutoSizer
    (fn [props]
@@ -32,9 +32,9 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
 (defn use-state [value]
   (let [r (r/atom value)]
     [r #(reset! r %)]))
-̀```
+```
 
-̀```
+```
 ;;avoid render props
 (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
   [:div
