@@ -1,6 +1,7 @@
 (ns cljs-re-datatable.views.rv-multigrid
   (:require
      [reagent.core :as r]
+     [cljs-re-datatable.views.rvutils :as rvu]
      [cljsjs.react-virtualized]))
 
 
@@ -95,7 +96,8 @@
       clj->js)))
 
 
-(defn multigrid []
+(defn multigrid [size]
+  (println size)
   [:> js/ReactVirtualized.MultiGrid
    {
     :fixedColumnCount  2,
@@ -107,10 +109,14 @@
     :rowCount          100
     :rowHeight         40
     :columnWidth       60
-    :height            300
-    :width             650}])
+    :height            (:height size)
+    :width             (:width size)}])
 
 (defn main []
-  [:div
+  (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
+    [:div.container-fluid.d-flex.flex-column.h-100.pb-3
+
      [:h2 "multigrid"]
-     [multigrid]])
+     [:div.row.flex-grow-1;
+       [rvu/AutoSizr resize]
+       [multigrid @size]]]))
