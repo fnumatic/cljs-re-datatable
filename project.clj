@@ -15,7 +15,7 @@
 
   :min-lein-version "2.8.1"
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/clj" "src/cljs" "env/dev"]
   :test-paths ["test/cljs"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
@@ -47,6 +47,7 @@
 
   :aliases {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
             "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]
+            "fig:buildws" ["trampoline" "run" "-m" "figwheel.main" "-b" "wsdev" "-r"]
             "fig:min"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]
             "fig:ws"   ["run" "-m" "figwheel.main" "-O" "advanced" "-bo" "ws"]
 
