@@ -76,7 +76,7 @@
 
 
 (defn inject-trace-styles [document]
-  (inject-inline-link document "--bootstrap--"  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+  (inject-inline-link document "--bootstrap--"  "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
   (inject-inline-link document "--react-virtualized--"  "css/react-virtualized.inc.css")
   (inject-inline-style document "--re-datatable--" (apply g/css styles)))
 
