@@ -1,12 +1,12 @@
 (defproject cljs-re-datatable "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.439"]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [org.clojure/clojurescript "1.10.520"]
                  [reagent "0.8.1"]
                  [re-frame "0.10.6"]
-                 [metosin/reitit "0.2.7"]
-                 [metosin/reitit-schema "0.2.7"]
-                 [metosin/reitit-frontend "0.2.7"]
-                 [nubank/workspaces "1.0.1"]
+                 [metosin/reitit "0.2.13"]
+                 [metosin/reitit-schema "0.2.13"]
+                 [metosin/reitit-frontend "0.2.13"]
+                 [nubank/workspaces "1.0.6"]
                  [org.clojure/test.check "0.10.0-alpha3"]
                  [garden "1.3.6"]
                  [cljsjs/react-virtualized "9.18.5-1"]]
@@ -24,10 +24,10 @@
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.10"]
-                   [day8.re-frame/re-frame-10x "0.3.6"]
-                   [com.bhauman/figwheel-main "0.1.9"]
+                   [day8.re-frame/re-frame-10x "0.3.7"]
+                   [com.bhauman/figwheel-main "0.2.1-SNAPSHOT"]
                    [com.bhauman/rebel-readline-cljs "0.1.4"]
-                   [cider/piggieback "0.3.10"]]
+                   [cider/piggieback "0.4.0"]]
     :resource-paths ["target"]
     :repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}}}
 
