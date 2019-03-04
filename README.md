@@ -22,7 +22,7 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
 
 [reagent hooks] (https://gitlab.com/boogie666/reagent-hooks)
 
-```
+```clojure
 (defn AutoSizr [sizer-fn]
   [:> js/ReactVirtualized.AutoSizer
    (fn [props]
@@ -34,7 +34,7 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
     [r #(reset! r %)]))
 ```
 
-```
+```clojure
 ;;avoid render props
 (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
   [:div
@@ -48,7 +48,7 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
 
 Put this in your Emacs config file:
 
-```
+```clojure
 (setq cider-cljs-lein-repl
 	"(do (require 'figwheel-sidecar.repl-api)
          (figwheel-sidecar.repl-api/start-figwheel!)
