@@ -1,6 +1,7 @@
 (ns workspaces.cards
   (:require
     [nubank.workspaces.core :as ws]
+    [nubank.workspaces.model :as wsm]
     [nubank.workspaces.card-types.react :as ct.react]
     [reagent.core :as rc]
     [cljs-re-datatable.views.rv-table :as table]
@@ -14,6 +15,7 @@
      (rc/as-element [table/main])))
 
 (ws/defcard multigrid
+   {::wsm/align {:flex "1 1 auto"}}
    (ct.react/react-card
      (rc/as-element [mg/main])))
 
