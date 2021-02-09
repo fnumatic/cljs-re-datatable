@@ -12,8 +12,8 @@ Demo site: [explore via workspaces] (http://fnumatic.github.io/cljs-re-datatable
 * react-virtualized tables
 * rowspan, colspan multigrid
 * reitit frontend routing
-* [garden styles] (https://github.com/noprompt/garden)
-* [tailwind css] (https://github.com/tailwindlabs/tailwindcss)
+* [garden styles](https://github.com/noprompt/garden)
+* [tailwind css](https://github.com/tailwindlabs/tailwindcss)
 
 
 ## Autosizer
