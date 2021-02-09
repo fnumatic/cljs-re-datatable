@@ -12,8 +12,8 @@ Demo site: [explore via workspaces] (http://fnumatic.github.io/cljs-re-datatable
 * react-virtualized tables
 * rowspan, colspan multigrid
 * reitit frontend routing
-* figwheel main
-* garden styles
+* [garden styles] (https://github.com/noprompt/garden)
+* [tailwind css] (https://github.com/tailwindlabs/tailwindcss)
 
 
 ## Autosizer
@@ -42,30 +42,19 @@ Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
     [multigrid @size]]])
 ```
 
-## Development Mode
-
-### Start Cider from Emacs:
-
-Put this in your Emacs config file:
-
-```clojure
-(setq cider-cljs-lein-repl
-	"(do (require 'figwheel-sidecar.repl-api)
-         (figwheel-sidecar.repl-api/start-figwheel!)
-         (figwheel-sidecar.repl-api/cljs-repl))")
-```
-
-Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-clojurescript` or (`C-c M-J`)
 
 ### Compile css:
 
 Garden styles are automatically injected into header.
 
+```
+npm run-script tw
+```
+
 ### Compile and Run application:
 
 ```
-lein fig:build
+./run watch
 ```
 
-Figwheel will automatically push cljs changes to the browser.
 
