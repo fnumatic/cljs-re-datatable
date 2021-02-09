@@ -2,7 +2,7 @@
   (:require
     [goog.object :as go]
     [re-frame.core :as re-frame]
-    [cljsjs.react-virtualized]
+    [react-virtualized]
     [cljs-re-datatable.use-cases.core-cases :as ccases]
     [tools.viewtools :as vt]))
 
@@ -20,7 +20,8 @@
   [
    ["#" :routes/table]
    ["multigrid" :routes/multigrid]
-   ["multigrid2" :routes/multigrid2]])
+   ["multigrid2" :routes/multigrid2]
+   ["virtscroll" :routes/virtscroll]])
 
 ;; main
 
@@ -33,6 +34,6 @@
 
 (defn main-panel []
   (let [active-route (re-frame/subscribe [::ccases/active-panel])]
-    [:div
+    [:div.flex.flex-col.h-screen
      [vt/navigation toolbar-items]
      [show-panel @active-route]]))

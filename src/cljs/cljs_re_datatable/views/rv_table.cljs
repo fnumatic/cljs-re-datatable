@@ -1,6 +1,6 @@
 (ns cljs-re-datatable.views.rv-table
   (:require
-    [cljsjs.react-virtualized]))
+    [react-virtualized :refer [ Table Column ]]))
 
 
 (defn person [i]
@@ -10,7 +10,7 @@
 
 (defn table []
   (let [rows (map (comp clj->js person) (range 100))]
-    [:>  js/ReactVirtualized.Table
+    [:>  Table
      {:headerHeight    70
       :height          300
       :rowCount        (count rows)
@@ -19,17 +19,17 @@
       :width           450
       :headerClassName "headerColumn"
       :className       "Table"}
-     [:> js/ReactVirtualized.Column
+     [:> Column
       {:label   "name"
        :dataKey (name :name)
        :className "bordered exampleColumn"
        :width   100}]
-     [:> js/ReactVirtualized.Column
+     [:> Column
       {:label     "lastname"
        :dataKey   (name :lastname)
        :className "bordered exampleColumn"
        :width     100}]
-     [:> js/ReactVirtualized.Column
+     [:> Column
       {:label     "age"
        :dataKey   (name :age)
        :className "bordered exampleColumn"
@@ -37,5 +37,5 @@
 
 (defn main []
   [:div
-   [:h2 "simple table"]
+   [:h2.text-xl.font-semibold "simple table"]
    [table]])

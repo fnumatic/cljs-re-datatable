@@ -2,8 +2,8 @@
   (:require
      [reagent.core :as r]
      [cljs-re-datatable.views.rvutils :as rvu]
-     [cljsjs.react-virtualized]))
-
+     [react-virtualized :refer [defaultCellRangeRenderer MultiGrid]]))
+   
 
 (defn ^:export xcell-renderer [{:keys [style key isVisible isScrolling] c :columnIndex r :rowIndex :as m}]
      (cond
@@ -17,7 +17,7 @@
                                (str "[" c ", " r "]")])))
 
 (defn ^:export default-cellrenderer [m]
-  (let [childs (js/ReactVirtualized.defaultCellRangeRenderer m)]
+  (let [childs (defaultCellRangeRenderer m)]
     (.push childs (r/as-element [:div "hurray"]))
     childs))
 
@@ -97,7 +97,7 @@
 
 
 (defn multigrid [size]
-  [:> js/ReactVirtualized.MultiGrid
+  [:> MultiGrid
    {
     :fixedColumnCount  2,
     :fixedRowCount     1,
@@ -112,10 +112,10 @@
     :width             (:width size)}])
 
 (defn main []
-  (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
-    [:div.container-fluid.d-flex.flex-column.h-100.pb-3
-
-     [:h2 "multigrid"]
-     [:div.row.flex-grow-1;
-       [rvu/AutoSizr resize]
-       [multigrid @size]]]))
+  (r/with-let [[size resize] (rvu/use-state {:width  0
+                                             :height 0})]
+    [:div.flex.flex-col.p-4.w-full.h-full
+     [:h2.text-xl.font-semibold "multigrid"]
+     [:div.flex-auto;
+      [rvu/AutoSizr2 resize
+       [multigrid @size]]]]))

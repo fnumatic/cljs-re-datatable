@@ -1,7 +1,7 @@
 (ns cljs-re-datatable.views.rv-multigrid-enh
   (:require
     [reagent.core :as r]
-    [cljsjs.react-virtualized]
+    [react-virtualized :refer [MultiGrid]]
     [cljs-re-datatable.views.rvutils :as rvu]))
 
 
@@ -155,7 +155,7 @@
 
 
 (defn multigrid [size]
-  [:> js/ReactVirtualized.MultiGrid
+  [:> MultiGrid
    {
     :fixedColumnCount         2,
     :fixedRowCount            1,
@@ -177,11 +177,11 @@
 
 (defn main []
   (r/with-let [[size resize] (rvu/use-state {:width 0 :height 0})]
-    [:div.container-fluid.d-flex.flex-column.h-100.pb-3
-       [:h2 "enhanced multigrid with spanned rows cols"]
-       [:div.row.flex-grow-1;
-        [rvu/AutoSizr resize]
-        [multigrid @size]]]))
+    [:div.flex.flex-col.p-4.w-full.h-full
+       [:h2.text-xl.font-semibold "enhanced multigrid with spanned rows cols"]
+       [:div.flex-auto
+         [rvu/AutoSizr2 resize
+          [multigrid @size]]]]))
 
 (comment
   (defn dbg-cr-render [{:keys [columnStartIndex
