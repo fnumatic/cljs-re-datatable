@@ -1,13 +1,13 @@
 # cljs-re-datatable
 
-A quick demo to show the use of [react-virtualized] (http://bvaughn.github.io/react-virtualized/)
+A quick demo to show the use of [react-virtualized](http://bvaughn.github.io/react-virtualized/)
 
 There is an example for how to get row-span and col-span working.
 
 ![tweaked multigrid](resources/public/img/table.png?raw=true)
 
 
-Demo site: [explore via workspaces] (http://fnumatic.github.io/cljs-re-datatable/)
+Demo site: [explore via workspaces](http://fnumatic.github.io/cljs-re-datatable/)
 
 * react-virtualized tables
 * rowspan, colspan multigrid
@@ -20,7 +20,7 @@ Demo site: [explore via workspaces] (http://fnumatic.github.io/cljs-re-datatable
 
 Use of react virtualized Autosizer. Render props are not idiomatic in cljs land.
 
-[reagent hooks] (https://gitlab.com/boogie666/reagent-hooks)
+[reagent hooks](https://gitlab.com/boogie666/reagent-hooks)
 
 ```clojure
 (defn AutoSizr [sizer-fn]
