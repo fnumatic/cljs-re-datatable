@@ -1,0 +1,25 @@
+{:deps   {:aliases [:dev :test  ]}
+
+ :nrepl  {:port 7002}
+ :builds {:app {:target           :browser
+                :asset-path       "js"
+                :output-dir       "resources/public/js"
+                :compiler-options {:infer-externs :auto}
+                :modules          {                                   :main {:entries [cljs-re-datatable.core]
+                                                                             :init-fn cljs-re-datatable.core/init
+                                                                             }}
+                :devtools         {                                   :http-port 9500
+                                   :http-root "resources/public/"
+                                   ;:after-load cljs-reframe-template.core/re-render
+                                   :preloads  [devtools.preload shadow.remote.runtime.cljs.browser]}}
+          :ws  {:target           :browser
+                :asset-path       "js"
+                :output-dir       "resources/public/js"
+                :compiler-options {:infer-externs :auto}
+                :modules          { :main {:entries [workspaces.wscore]
+                                                         :init-fn workspaces.wscore/init}}
+                :devtools         {:http-port 9501
+                                   :http-root "resources/public/"
+                                   ;:after-load cljs-reframe-template.core/re-render
+                                   :preloads  [devtools.preload shadow.remote.runtime.cljs.browser]}}}
+ }
