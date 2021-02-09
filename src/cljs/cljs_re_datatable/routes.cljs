@@ -11,7 +11,6 @@
 
 ;;https://clojure.org/guides/weird_characters#__code_code_var_quote
 (def routes
-    (rtf/router
       ["/"
        [""
         {:name :routes/table
@@ -21,15 +20,11 @@
           :view #'rvmg/main}]
        ["multigrid2"
         {:name :routes/multigrid2
-          :view #'rvmgenh/main}]]
-
-
-      {:data {:coercion rsc/coercion}}))
-
+          :view #'rvmgenh/main}]])
 
 
 (defn app-routes []
 
-  (rtfe/start! routes
+  (rtfe/start! (rtf/router routes {:data {:coercion rsc/coercion}})
                (fn [m] (rf/dispatch [::ccases/set-active-panel m]))
                {:use-fragment true}))
