@@ -1,6 +1,7 @@
 (ns ^:figwheel-hooks cljs-re-datatable.core
   (:require
    [reagent.core :as reagent]
+   [reagent.dom :as dom]
    [re-frame.core :as re-frame]
    [cljs-re-datatable.use-cases.core-cases :as ccases]
    [cljs-re-datatable.routes :as routes]
@@ -19,7 +20,7 @@
   (println "mount")
   (re-frame/clear-subscription-cache!)
   (styl/inject-trace-styles js/document)
-  (reagent/render [home/main-panel]
+  (dom/render [home/main-panel]
                   (.getElementById js/document "app")))
 
 (defn ^:after-load re-render []
